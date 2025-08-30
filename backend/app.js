@@ -22,6 +22,7 @@ app.use('/api/problems', problemRoutes);
 app.use('/api/solutions', solutionRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/comments', commentRoutes);
+
 app.get('/', (req, res) =>	res.send('backend alive'));
 app.get('/health', (req, res) =>	res.send('ok'));
 

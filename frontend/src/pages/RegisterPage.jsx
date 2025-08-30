@@ -13,7 +13,7 @@ export default function RegisterPage() {
 			return;
 		}
 
-		axios.post('http://localhost:5001/api/auth/register', { username, password })
+		axios.post('https://isg-jubail-math-frontend.onrender.com/api/auth/register', { username, password })
 			.then(() => {
 				alert('회원가입이 완료되었습니다.');
 				navigate('/login');

@@ -6,7 +6,7 @@ export default function ProblemPages() {
 	const [problems, setProblems] = useState([]);
 
 	useEffect(() => {
-		axios.get('http://localhost:5001/api/problems')
+		axios.get('https://isg-jubail-math-frontend.onrender.com/api/problems')
 			.then(res => setProblems(res.data))
 			.catch(err => console.error(err));
 	}, []);

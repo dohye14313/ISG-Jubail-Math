@@ -24,7 +24,7 @@ const ProblemRegister = () => {
 			const userId = JSON.parse(atob(token.split('.')[1])).id; // 토큰에서 user ID 추출
 
 			await axios.post(
-				'http://localhost:5001/api/problems',
+				'hhttps://isg-jubail-math-frontend.onrender.com/api/problems',
 				{ title, description, author_id: userId },
 				{
 					headers: {

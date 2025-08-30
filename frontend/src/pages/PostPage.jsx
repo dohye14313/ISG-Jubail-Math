@@ -16,7 +16,7 @@ export default function PostPage() {
 			return;
 		}
 
-		axios.post('http://localhost:5001/api/problems', {
+		axios.post('https://isg-jubail-math-frontend.onrender.com/api/problems', {
 			title,
 			content,
 			author_id
