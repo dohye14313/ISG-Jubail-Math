@@ -8,18 +8,18 @@ const ProblemDetail = () => {
 	const [newComment, setNewComment] = useState('');
 
 	useEffect(() => {
-		fetch(`https://isg-jubail-math-backend.onrender.com/api/problems/${id}`)
+		fetch(`https://isg-jubail-math.onrender.com/api/problems/${id}`)
 			.then(res => res.json())
 			.then(data => setProblem(data));
 
-		fetch(`https://isg-jubail-math-backend.onrender.com/api/comments/${id}`)
+		fetch(`https://isg-jubail-math.onrender.com/api/comments/${id}`)
 			.then(res => res.json())
 			.then(data => setComments(data));
 	}, [id]);
 
 	const handleCommentSubmit = async () => {
 		if (!newComment.trim()) return;
-		await fetch(`https://isg-jubail-math-backend.onrender.com/api/comments`, {
+		await fetch(`https://isg-jubail-math.onrender.com/api/comments`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
@@ -30,7 +30,7 @@ const ProblemDetail = () => {
 		});
 		setNewComment('');
 		// 새로고침
-		const res = await fetch(`https://isg-jubail-math-backend.onrender.com/api/comments/${id}`);
+		const res = await fetch(`https://isg-jubail-math.onrender.com/api/comments/${id}`);
 		setComments(await res.json());
 	};
 

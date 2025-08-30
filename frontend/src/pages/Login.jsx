@@ -11,7 +11,7 @@ function Login() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const res = await axios.post('https://isg-jubail-math-backend.onrender.com/api/auth/login', {
+			const res = await axios.post('https://isg-jubail-math.onrender.com/api/auth/login', {
 				username,
 				password,
 			});

@@ -16,7 +16,7 @@ export default function PostPage() {
 			return;
 		}
 
-		axios.post('https://isg-jubail-math-backend.onrender.com/api/problems', {
+		axios.post('https://isg-jubail-math.onrender.com/api/problems', {
 			title,
 			content,
 			author_id
