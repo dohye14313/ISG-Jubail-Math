@@ -31,14 +31,14 @@ router.get('/:id', (req, res) => {
 // 문제 등록
 router.post('/', (req, res, next) => {
 	try {
-		const { title, content } = req.body || {};
-		if (!title || !content) return res.status(400).json({ message: 'title, content 필수' });
+		const { title, description } = req.body || {};
+		if (!title || !description) return res.status(400).json({ message: 'title, description 필수' });
 
 		const userId = req.user.id;	// 토큰에서 꺼낸 사용자 id
 
 		db.run(
-			'INSERT INTO problems (title, content, user_id) VALUES (?, ?, ?)',
-			[title, content, userId],
+			'INSERT INTO problems (title, description, user_id) VALUES (?, ?, ?)',
+			[title, description, userId],
 			function(err) {
 				if (err) return next(err);
 				return res.status(201).json({ id: this.lastID });
