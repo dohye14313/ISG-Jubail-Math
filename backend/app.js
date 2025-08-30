@@ -24,7 +24,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/comments', commentRoutes);
 
 // 서버 실행
-const PORT = 5001;
-app.listen(PORT, () => {
-	console.log(`🚀 Server running on port ${PORT}`);
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, '0.0.0.0', () => {
+	console.log('listening on', PORT);
 });

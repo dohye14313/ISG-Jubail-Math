@@ -46,24 +46,28 @@ const ProblemRegister = () => {
 			<div className="header">
 				<h1 className="title">Math</h1>
 			</div>
-			<h2>문제 등록</h2>
-			<form onSubmit={handleSubmit}>
-				<input
-					type="text"
-					placeholder="문제 제목"
-					value={title}
-					onChange={(e) => setTitle(e.target.value)}
-					required
-				/>
-				<textarea
-					placeholder="문제 내용"
-					value={description}
-					onChange={(e) => setDescription(e.target.value)}
-					required
-				/>
-				<button type="submit">등록하기</button>
-			</form>
-			{error && <p>{error}</p>}
+			<div className="contents">
+				<h2>문제 등록</h2>
+				<form onSubmit={handleSubmit}>
+					<input
+						type="text"
+						placeholder="문제 제목"
+						value={title}
+						onChange={(e) => setTitle(e.target.value)}
+						required
+					/>
+					<textarea
+						placeholder="문제 내용"
+						value={description}
+						onChange={(e) => setDescription(e.target.value)}
+						required
+					/>
+					<div className="btn">
+						<button type="submit">등록하기</button>
+					</div>
+				</form>
+				{error && <p>{error}</p>}
+			</div>
 		</div>
 	);
 };

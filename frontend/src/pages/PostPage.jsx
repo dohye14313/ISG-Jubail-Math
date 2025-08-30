@@ -36,25 +36,29 @@ export default function PostPage() {
 			<div className="header">
 				<h1 className="title">Math</h1>
 			</div>
-			<h2 className="text-2xl font-bold mb-4">문제 등록</h2>
-			<input
-				className="border p-2 mb-2 w-full"
-				placeholder="제목"
-				value={title}
-				onChange={(e) => setTitle(e.target.value)}
-			/>
-			<textarea
-				className="border p-2 mb-2 w-full h-32"
-				placeholder="문제 내용을 입력하세요"
-				value={content}
-				onChange={(e) => setContent(e.target.value)}
-			/>
-			<button
-				className="bg-blue-500 text-white px-4 py-2 w-full"
-				onClick={handleSubmit}
-			>
-				등록하기
-			</button>
+			<div className="contents">
+				<h2 className="text-2xl font-bold mb-4">문제 등록</h2>
+				<input
+					className="border p-2 mb-2 w-full"
+					placeholder="제목"
+					value={title}
+					onChange={(e) => setTitle(e.target.value)}
+				/>
+				<textarea
+					className="border p-2 mb-2 w-full h-32"
+					placeholder="문제 내용을 입력하세요"
+					value={content}
+					onChange={(e) => setContent(e.target.value)}
+				/>
+				<div className="btn">
+					<button
+						className="bg-blue-500 text-white px-4 py-2 w-full"
+						onClick={handleSubmit}
+					>
+						등록하기
+					</button>
+				</div>
+			</div>
 		</div>
 	);
 }

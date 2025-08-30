@@ -41,27 +41,31 @@ const ProblemDetail = () => {
 			<div className="header">
 				<h1 className="title">Math</h1>
 			</div>
-			<h2>{problem.title}</h2>
-			<p>{problem.description}</p>
+			<div className="contents">
+				<h2>{problem.title}</h2>
+				<p>{problem.description}</p>
 
-			<hr />
-			<h3>댓글</h3>
-			<ul>
-				{comments.map((comment) => (
-					<li key={comment.id}>
-						<p>{comment.content}</p>
-						<small>{new Date(comment.created_at).toLocaleString()}</small>
-					</li>
-				))}
-			</ul>
+				<hr />
+				<h3>댓글</h3>
+				<ul>
+					{comments.map((comment) => (
+						<li key={comment.id}>
+							<p>{comment.content}</p>
+							<small>{new Date(comment.created_at).toLocaleString()}</small>
+						</li>
+					))}
+				</ul>
 
-			<textarea
-				value={newComment}
-				onChange={(e) => setNewComment(e.target.value)}
-				placeholder="댓글을 입력하세요"
-			/>
-			<br />
-			<button onClick={handleCommentSubmit}>댓글 등록</button>
+				<textarea
+					value={newComment}
+					onChange={(e) => setNewComment(e.target.value)}
+					placeholder="댓글을 입력하세요"
+				/>
+				<br />
+				<div className="btn">
+					<button onClick={handleCommentSubmit}>댓글 등록</button>	
+				</div>
+			</div>	
 		</div>
 	);
 };

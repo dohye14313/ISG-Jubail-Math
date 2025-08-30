@@ -15,9 +15,15 @@ code {
 .header{
   text-align: center;
   background-color: powderblue;
+  padding: 2%;
 }
 
 .footer{
   text-align: center;
   background-color: powderblue;
+  padding: 2%;
+}
+
+.contents{
+  padding: 2%;
 }

@@ -35,15 +35,21 @@ export default function HomePages() {
 				)}		
 			</div>
 			<div className="footer">
-				<Link to="/problems/new">
-					<button>문제 등록하러 가기</button>
-				</Link>
-				<Link to="/problems">
-					<button>문제 보러가기</button>
-				</Link>
-				<Link to="/login">
-					<button>로그인하기</button>
-				</Link>
+				<div className="btn">
+					<Link to="/problems/new">
+						<button>문제 등록하러 가기</button>
+					</Link>
+				</div>
+				<div className="btn">
+					<Link to="/problems">
+						<button>문제 보러가기</button>
+					</Link>
+				</div>
+				<div className="btn">
+					<Link to="/login">
+						<button>로그인하기</button>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);
