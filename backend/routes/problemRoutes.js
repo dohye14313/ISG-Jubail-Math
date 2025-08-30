@@ -29,8 +29,7 @@ router.get('/:id', (req, res) => {
 });
 
 // 문제 등록
-// tabs로 들여쓰기
-app.post('/', requireAuth, (req, res, next) => {
+router.post('/', (req, res) => {
 	try {
 		const { title, content } = req.body || {};
 		if (!title || !content) return res.status(400).json({ message: 'title, content 필수' });
@@ -46,5 +45,6 @@ app.post('/', requireAuth, (req, res, next) => {
 			});
 	} catch (e) { next(e); }
 });
+
 
 module.exports = router;
