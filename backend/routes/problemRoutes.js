@@ -29,22 +29,25 @@ router.get('/:id', (req, res) => {
 });
 
 // 문제 등록
-router.post('/', (req, res, next) => {
-	try {
-		const { title, description } = req.body || {};
-		if (!title || !description) return res.status(400).json({ message: 'title, description 필수' });
+router.post('/', (req, res) => {
+	console.log('등록 요청 도착:', req.body);
 
-		const userId = req.user.id;	// 토큰에서 꺼낸 사용자 id
+	const { title, description, author_id } = req.body;
 
-		db.run(
-			'INSERT INTO problems (title, description, user_id) VALUES (?, ?, ?)',
-			[title, description, userId],
-			function(err) {
-				if (err) return next(err);
-				return res.status(201).json({ id: this.lastID });
-			});
-	} catch (e) { next(e); }
+	if (!title || !description || !author_id) {
+		return res.status(400).json({ success: false, message: '필수값 누락' });
+	}
+
+	const sql = 'INSERT INTO problems (title, description, author_id) VALUES (?, ?, ?)';
+	const params = [title, description, author_id];
+
+	db.run(sql, params, function (err) {
+		if (err) {
+			console.error('DB 오류:', err.message);
+			return res.status(500).json({ success: false, message: 'DB 오류' });
+		}
+		res.json({ success: true, id: this.lastID }); // sqlite에서는 this.lastID로 삽입된 row id 확인
+	});
 });
-
 
 module.exports = router;
