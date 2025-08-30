@@ -7,7 +7,7 @@ export default function HomePages() {
 
 	useEffect(() => {
 		// 서버에서 문제 리스트 가져오기
-		axios.get('https://isg-jubail-math-frontend.onrender.com/api/problems')
+		axios.get('https://isg-jubail-math-backend.onrender.com/api/problems')
 			.then(res => setProblems(res.data))
 			.catch(err => console.error('문제 불러오기 실패:', err));
 	}, []);
