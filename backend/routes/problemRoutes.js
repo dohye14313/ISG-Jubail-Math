@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
 });
 
 // 문제 등록
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
 	try {
 		const { title, content } = req.body || {};
 		if (!title || !content) return res.status(400).json({ message: 'title, content 필수' });
