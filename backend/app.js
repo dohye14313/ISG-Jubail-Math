@@ -22,6 +22,8 @@ app.use('/api/problems', problemRoutes);
 app.use('/api/solutions', solutionRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/comments', commentRoutes);
+app.get('/', (req, res) =>	res.send('backend alive'));
+app.get('/health', (req, res) =>	res.send('ok'));
 
 // 서버 실행
 const PORT = process.env.PORT || 5001;
