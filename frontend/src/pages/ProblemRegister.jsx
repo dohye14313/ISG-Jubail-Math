@@ -21,11 +21,11 @@ const ProblemRegister = () => {
 		e.preventDefault();
 		try {
 			const token = localStorage.getItem('token');
-			const userId = JSON.parse(atob(token.split('.')[1])).id; // 토큰에서 user ID 추출
+			const username = localStorage.getItem('username');
 
 			await axios.post(
 				'https://isg-jubail-math.onrender.com/api/problems',
-				{ title, description, author_id: userId },
+				{ title, description, author_id: username },
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -49,19 +49,23 @@ const ProblemRegister = () => {
 			<div className="contents">
 				<h2>문제 등록</h2>
 				<form onSubmit={handleSubmit}>
-					<input
-						type="text"
-						placeholder="문제 제목"
-						value={title}
-						onChange={(e) => setTitle(e.target.value)}
-						required
-					/>
-					<textarea
-						placeholder="문제 내용"
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-						required
-					/>
+					<div className="fill">
+						<input
+							type="text"
+							placeholder="문제 제목"
+							value={title}
+							onChange={(e) => setTitle(e.target.value)}
+							required
+						/>
+					</div>
+					<div className="fill">
+						<textarea
+							placeholder="문제 내용"
+							value={description}
+							onChange={(e) => setDescription(e.target.value)}
+							required
+						/>
+					</div>
 					<div className="btn">
 						<button type="submit">등록하기</button>
 					</div>

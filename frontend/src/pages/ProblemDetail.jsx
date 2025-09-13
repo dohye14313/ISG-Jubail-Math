@@ -44,8 +44,7 @@ const ProblemDetail = () => {
 			<div className="contents">
 				<h2>{problem.title}</h2>
 				<p>{problem.description}</p>
-
-				<hr />
+				<hr/>
 				<h3>댓글</h3>
 				<ul>
 					{comments.map((comment) => (
@@ -55,13 +54,14 @@ const ProblemDetail = () => {
 						</li>
 					))}
 				</ul>
-
-				<textarea
-					value={newComment}
-					onChange={(e) => setNewComment(e.target.value)}
-					placeholder="댓글을 입력하세요"
-				/>
-				<br />
+				<div className="fill">
+					<textarea
+						value={newComment}
+						onChange={(e) => setNewComment(e.target.value)}
+						placeholder="댓글을 입력하세요"
+					/>
+				</div>
+				<br/>
 				<div className="btn">
 					<button onClick={handleCommentSubmit}>댓글 등록</button>	
 				</div>

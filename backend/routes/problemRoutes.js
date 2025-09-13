@@ -32,14 +32,14 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
 	console.log('등록 요청 도착:', req.body);
 
-	const { title, description, author_id } = req.body;
+	const { title, description, username } = req.body;
 
-	if (!title || !description || !author_id) {
+	if (!title || !description || !username) {
 		return res.status(400).json({ success: false, message: '필수값 누락' });
 	}
 
-	const sql = 'INSERT INTO problems (title, description, author_id) VALUES (?, ?, ?)';
-	const params = [title, description, author_id];
+	const sql = 'INSERT INTO problems (title, description, username) VALUES (?, ?, ?)';
+	const params = [title, description, username];
 
 	db.run(sql, params, function (err) {
 		if (err) {

@@ -16,6 +16,7 @@ function Login() {
 				password,
 			});
 			localStorage.setItem('token', res.data.token);
+			localStorage.setItem('username', username);
 			navigate('/problems/new');
 		} catch (err) {
 			setError('로그인 실패: ' + err.response?.data?.message || err.message);
@@ -30,21 +31,27 @@ function Login() {
 			<div className="contents">
 				<h2>로그인</h2>
 				<form onSubmit={handleSubmit}>
-					<input
-						type="text"
-						placeholder="아이디"
-						value={username}
-						onChange={(e) => setUsername(e.target.value)}
-						required
-					/>
-					<input
-						type="password"
-						placeholder="비밀번호"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						required
-					/>
-					<button type="submit">로그인</button>
+					<div className="fill">
+						<input
+							type="text"
+							placeholder="아이디"
+							value={username}
+							onChange={(e) => setUsername(e.target.value)}
+							required
+						/>
+					</div>
+					<div className="fill">
+						<input
+							type="password"
+							placeholder="비밀번호"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							required
+						/>
+					</div>
+					<div className="btn">
+						<button type="submit">로그인</button>
+					</div>
 				</form>
 				{error && <p>{error}</p>}
 				<p>

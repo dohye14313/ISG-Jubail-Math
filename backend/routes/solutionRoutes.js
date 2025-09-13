@@ -4,10 +4,10 @@ const db = require('../db'); // db 연결 파일 경로에 따라 수정
 
 // 풀이 등록
 router.post('/', (req, res) => {
-	const { problem_id, content, author_id } = req.body;
+	const { problem_id, content, username } = req.body;
 	db.execute(
-		'INSERT INTO solutions (problem_id, content, author_id) VALUES (?, ?, ?)',
-		[problem_id, content, author_id],
+		'INSERT INTO solutions (problem_id, content, username) VALUES (?, ?, ?)',
+		[problem_id, content, username],
 		(err, results) => {
 			if (err) return res.status(500).json({ success: false, message: 'DB 오류' });
 			res.json({ success: true });

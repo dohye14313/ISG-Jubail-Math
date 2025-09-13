@@ -31,19 +31,23 @@ export default function RegisterPage() {
 			</div>
 			<div className="contents">
 				<h2 className="text-2xl font-bold mb-4">회원가입</h2>
-				<input
-					className="border p-2 mb-2 w-full"
-					placeholder="아이디"
-					value={username}
-					onChange={(e) => setUsername(e.target.value)}
-				/>
-				<input
-					type="password"
-					className="border p-2 mb-2 w-full"
-					placeholder="비밀번호"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-				/>
+				<div className="fill">
+					<input
+						className="border p-2 mb-2 w-full"
+						placeholder="아이디"
+						value={username}
+						onChange={(e) => setUsername(e.target.value)}
+					/>
+				</div>
+				<div className="fill">
+					<input
+						type="password"
+						className="border p-2 mb-2 w-full"
+						placeholder="비밀번호"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+				</div>
 				<div className="btn">
 					<button
 						className="bg-blue-500 text-white px-4 py-2 w-full"
