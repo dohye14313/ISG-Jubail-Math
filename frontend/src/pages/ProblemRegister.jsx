@@ -20,17 +20,11 @@ const ProblemRegister = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const token = localStorage.getItem('token');
 			const username = localStorage.getItem('username');
 
 			await axios.post(
 				'https://isg-jubail-math.onrender.com/api/problems',
 				{ title, description, author_id: username },
-				{
-					headers: {
-						Authorization: `Bearer ${token}`,
-					},
-				}
 			);
 
 			alert('문제가 성공적으로 등록되었습니다!');
