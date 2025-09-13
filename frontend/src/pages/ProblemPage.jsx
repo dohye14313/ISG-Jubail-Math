@@ -60,11 +60,6 @@ export default function ProblemPages() {
 									{problem?.username?.trim() || '(익명)'}
 								</span>
 							</div>
-
-							{/* 디버그용: 필요할 때만 잠깐 켜서 실제 렌더 시점 값을 확인하세요 */}
-							<pre className="text-xs bg-gray-50 border rounded p-2 overflow-auto">
-								{JSON.stringify(problem, null, 2)}
-							</pre>
 						</div>
 					))
 				)}
