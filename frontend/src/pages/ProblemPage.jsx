@@ -24,7 +24,7 @@ export default function ProblemPages() {
 					problems.map(problem => (
 						<div key={problem.id} className="border p-4 mb-2 shadow">
 							<h3 className="text-xl font-semibold mb-1"><Link to={`/problems/${problem.id}`} className="text-blue-500">{problem.title}</Link></h3>
-							<p className="text-sm mb-2">작성자 ID: {problem.author_id}</p>
+							<p className="text-sm mb-2">작성자 ID: {problem.username}</p>
 							{console.log(problem)}
 						</div>
 					))
