@@ -32,7 +32,9 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
 	console.log('등록 요청 도착:', req.body);
 
-	const { title, description, username } = req.body;
+	const title = (req.body.title || '').trim();
+	const description = (req.body.description || '').trim();
+	const username = (req.body.username || '').trim();
 
 	if (!title || !description || !username) {
 		return res.status(400).json({ success: false, message: '필수값 누락' });
@@ -43,10 +45,10 @@ router.post('/', (req, res) => {
 
 	db.run(sql, params, function (err) {
 		if (err) {
-			console.error('DB 오류:', err.message);
-			return res.status(500).json({ success: false, message: 'DB 오류' });
+			console.error('[INSERT ERR]', err.message, { sql, params });
+			return res.status(500).json({ success: false, message: err.message });
 		}
-		res.json({ success: true, id: this.lastID }); // sqlite에서는 this.lastID로 삽입된 row id 확인
+		res.json({ success: true, id: this.lastID });
 	});
 });
 
