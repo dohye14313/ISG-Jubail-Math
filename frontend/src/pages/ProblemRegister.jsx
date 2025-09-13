@@ -24,7 +24,7 @@ const ProblemRegister = () => {
 
 			await axios.post(
 				'https://isg-jubail-math.onrender.com/api/problems',
-				{ title, description, author_id: username },
+				{ title, description, username },
 			);
 
 			alert('문제가 성공적으로 등록되었습니다!');
