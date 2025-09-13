@@ -64,7 +64,7 @@ export default function ProblemPages() {
 					))
 				)}
 
-				<div className="btn mt-4">
+				<div className="btn">
 					<Link to="/problems/new">
 						<button>문제 등록하러 가기</button>
 					</Link>
